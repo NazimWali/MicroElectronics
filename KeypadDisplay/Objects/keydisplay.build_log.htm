@@ -1,0 +1,106 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Nazim Windows, HP Inc., LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.14
+Assembler:       Armasm.exe V6.14
+Linker/Locator:  ArmLink.exe V6.14
+Library Manager: ArmAr.exe V6.14
+Hex Converter:   FromElf.exe V6.14
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.46.0.0
+ 
+<h2>Project:</h2>
+C:\Users\nazim\Desktop\Keil stuff\KeypadDisplay\keydisplay.uvprojx
+Project File Date:  11/11/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+assembling startup_stm32f446xx.s...
+compiling system_stm32f4xx.c...
+keydisplay.c(39): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+    GPIOC->MODER &= ~0x0000FFFF;    /* clear pin mode to input */
+                 ~~ ^~~~~~~~~~~
+keydisplay.c(74): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+    GPIOC->MODER &= ~0x0000FF00;    /* disable all row pins drive */
+                 ~~ ^~~~~~~~~~~
+keydisplay.c(82): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        GPIOC->MODER &= ~0x0000FF00;    /* disable all row pins drive */
+                     ~~ ^~~~~~~~~~~
+keydisplay.c(83): warning: implicit conversion changes signedness: 'const int' to 'unsigned int' [-Wsign-conversion]
+        GPIOC->MODER |= row_mode[row];  /* enable one row at a time */
+                     ~~ ^~~~~~~~~~~~~
+keydisplay.c(84): warning: implicit conversion changes signedness: 'const int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        GPIOC->BSRR = row_low[row];     /* drive the active row low */
+                    ~ ^~~~~~~~~~~~
+keydisplay.c(87): warning: implicit conversion changes signedness: 'const int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+        GPIOC->BSRR = row_high[row];    /* drive the active row high */
+                    ~ ^~~~~~~~~~~~~
+keydisplay.c(91): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+    GPIOC->MODER &= ~0x0000FF00;        /* disable all rows */
+                 ~~ ^~~~~~~~~~~
+keydisplay.c(96): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+    if (col == 0x000E) return row * 4 + 1;    /* key in column 0 */
+                       ~~~~~~ ~~~~~~~~^~~
+keydisplay.c(97): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+    if (col == 0x000D) return row * 4 + 2;    /* key in column 1 */
+                       ~~~~~~ ~~~~~~~~^~~
+keydisplay.c(98): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+    if (col == 0x000B) return row * 4 + 3;    /* key in column 2 */
+                       ~~~~~~ ~~~~~~~~^~~
+keydisplay.c(99): warning: implicit conversion loses integer precision: 'int' to 'char' [-Wimplicit-int-conversion]
+    if (col == 0x0007) return row * 4 + 4;    /* key in column 3 */
+                       ~~~~~~ ~~~~~~~~^~~
+keydisplay.c(143): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+12 warnings generated.
+compiling keydisplay.c...
+linking...
+Program Size: Code=904 RO-data=468 RW-data=0 ZI-data=1632  
+".\Objects\keydisplay.axf" - 0 Error(s), 12 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.14.0.pack
+                Keil.STM32F4xx_DFP.2.14.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.6.3
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Target_1
+  C:\Users\nazim\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\nazim\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.14.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: Keil::Device:Startup:2.6.3
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F446xx_OPT.s
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f446xx.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>
